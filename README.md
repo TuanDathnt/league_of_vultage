@@ -8,3 +8,13 @@ Trang Cart    |
 Trang thanh toán   | 
 Trang đọc ebook    |
 Trang nhắn tin(optional) |
+Trang profile |
+Trang lịch sử giao dịch |
+Trang Achivemetnt
+
+
+Markup :  # Luồng trang #
+
+-OR-
+
+Markup :  ============= (below H1 text)
