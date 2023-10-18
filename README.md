@@ -6,3 +6,5 @@ Tên Trang     |
 Trang chủ     | 
 Trang Cart    | 
 Trang thanh toán   | 
+Trang đọc ebook    |
+Trang nhắn tin(optional) |
