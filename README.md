@@ -13,7 +13,7 @@ git clone https://github.com/TuanDathnt/league_of_vultage.git
 
 # macOS/Linux
 
-# You may need to run `sudo apt-get install python3-venv` first on Debian-based OSs
+## You may need to run `sudo apt-get install python3-venv` first on Debian-based OSs
 
 ```commandline
 python3 -m venv .venv
@@ -21,25 +21,25 @@ python3 -m venv .venv
 
 # Windows
 
-# You can also use `py -3 -m venv .venv`
+## You can also use `py -3 -m venv .venv`
 
 ```commandline
 python -m venv .venv
 ```
 
-#chay moi truong ao
+# chay moi truong ao
 
 ```commandline
 source .venv/bin/activate
 ```
 
-2. Cài đặt các dependencies:
+3. Cài đặt các dependencies:
 
 ```commandline
 pip install -r requirements.txt
 ```
 
-3. Khởi chạy ứng dụng:
+4. Khởi chạy ứng dụng:
 
 ```commandline
 python app.py
