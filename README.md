@@ -8,6 +8,9 @@ Project su dung vscode de lap trinh . Project backend
 ```commandline
 git clone https://github.com/TuanDathnt/league_of_vultage.git
 ```
+```commandline
+cd league_of_vultage/
+```
 
 2.Khoi chay venv
 
