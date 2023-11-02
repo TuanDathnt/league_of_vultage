@@ -7,19 +7,21 @@ app.static_folder = "static"
 
 @app.route("/")
 def index():
-  return render_template("index.html")
+  return render_template("index.html",username="")
 
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
-  pass
+  if request.method=="GET":
+    return render_template("login.html")
 
 @app.route("/logout")
 def logout():
   pass
 
-@app.route("/register", methods = ['GET','POST'])
+@app.route("/signup", methods = ['GET','POST'])
 def register():
-  pass
+  if request.method=="GET":
+    return render_template("signup.html")
 
 @app.route("/browse", methods = ['GET','POST'])
 def show_products():
