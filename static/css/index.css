@@ -1,3 +1,238 @@
 * {
   box-sizing: border-box;
 }
+
+.big-btn {
+  width: 128px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(94deg, #FF6EC8 0%, #F97C1E 100%);
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 912px auto;
+  grid-gap: 16px;
+  padding: 64px;
+}
+
+.main-panel {
+  
+}
+
+.panel {
+  background-color: #FFF;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.big-banner {
+  background-image: url('../../public/index/new-banner.png');
+}
+
+.big-banner h1 {
+  max-width: 390px;
+}
+
+.side-panel {
+
+}
+
+.progress {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 16px;
+  padding: 16px;
+  align-items: center;
+}
+
+.progress p {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  float: left;
+}
+
+.progress div {
+  float: right;
+}
+
+.progress span {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  padding: 8px;
+  background: linear-gradient(135deg, #FF6EC8 0%, #F97C1E 100%);
+  border-radius: 100%;
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.books {
+
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+}
+
+.heading h1 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.heading button {
+  height: 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(94deg, #FF6EC8 0%, #F97C1E 100%);
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 4px 16px;
+  margin-left: 48px;
+}
+
+.books-list {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 8px;
+}
+
+.book {
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 32px auto;
+  margin-bottom: 0;
+}
+
+.book-author {
+  color: #F97C1E;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.book-title {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.book-genre {
+  color: rgba(30, 30, 30, 0.75);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.book-rate {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.book-rate i {
+  color: #FF6EC8;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.book-rate-people {
+  color: rgba(30, 30, 30, 0.50);
+  text-align: right;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.book-btn button {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 4px 16px;
+}
+
+.secondary {
+  color: #F97C1E;
+  border-radius: 4px;
+  border: 1px solid #F97C1E;
+  background: #FFF;
+}
+
+.primary {
+  color: #FFF;
+  border-radius: 4px;
+  border: 1px solid #F97C1E;
+  background: #F97C1E;
+}
+
+.group {
+  padding-bottom: 16px;
+}
+
+.group span {
+  color: rgba(30, 30, 30, 0.50);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.group span.focus {
+  color: #F97C1E;
+}
+
+.friend {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.friend img {
+  width: 32px;
+}
+
+.friend-name {
+  color: #F97C1E;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.friend-status {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

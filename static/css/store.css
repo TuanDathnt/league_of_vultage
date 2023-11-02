@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 320px auto;
+    grid-gap: 16px;
+    padding: 16px 64px;
+}
+
+.panel {
+    background-color: #FFF;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.filter {
+    padding-bottom: 32px;
+}
+
+.filter h1 {
+    color: rgba(30, 30, 30, 0.75);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.fiter p, .filter label {
+    color: rgba(30, 30, 30, 0.75);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.filter p.focus {
+    color: #F97C1E;
+}
+
+.view-all {
+    color: #FF6EC8;
+    font-size: 16px;
+    font-style: bold;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.sort {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-bottom: 16px;
+}
+
+.sort label {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sort select {
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid rgba(30, 30, 30, 0.10);
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-row: inherit;
+    gap: 16px;
+}
+
+.book-list img {
+    width: 160px;
+}
