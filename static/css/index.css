@@ -28,13 +28,6 @@ main {
   
 }
 
-.panel {
-  background-color: #FFF;
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 16px;
-}
-
 .big-banner {
   background-image: url('../../public/index/new-banner.png');
 }

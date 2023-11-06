@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 288px auto 288px;
+    grid-gap: 32px;
+    padding: 64px;
+}
+
+.profile-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-panel .avatar {
+    width: 75%;
+}
+
+.profile-panel .username {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profile-panel .rank {
+        color: rgba(255, 110, 200, 0.75);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+}
+
+.profile-panel div {
+    align-items: start;
+}
+
+.main-panel .navigator {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    padding-bottom: 16px;
+}
+
+.main-panel .navigator span {
+    padding-right: 26px;
+}
+
+.main-panel .navigator .focus {
+    color: #F97C1E;
+}
+
+.main-panel .post {
+    display: flex;
+}
+
+.main-panel .heading {
+    display: flex;
+    align-items: center;
+}
+
+.main-panel .heading h1 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-right: 8px;
+}
+
+.main-panel .heading p {
+    color: rgba(30, 30, 30, 0.75);
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: normal;
+    padding-right: 16px;
+}
+
+
+.main-panel .heading span {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.main-panel .heading div {
+    padding-right: 16px;
+}
+
+.main-panel .heading div i {
+    color: #FF6EC8;
+}
+
+.main-panel .content p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.main-panel .content span {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-right: 8px;
+}
+
+.main-panel .content i {
+    color: #FF6EC8;
+}
+
+.main-panel .content i:hover {
+    font-size: 16px;
+    cursor: pointer;
+}

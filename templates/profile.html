@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ - League of Vulgate - Siêu ứng dụng đọc sách 2023</title>
+    <link
+      rel="shortcut icon"
+      href="../public/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="../static/css/nav.css" />
+    <link rel="stylesheet" href="../static/css/profile.css" />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <body>
+    <div class="nav">
+      <div>
+        <a href="./index.html"><img src="../public/logo.png" alt="" /></a>
+      </div>
+      <form action="post" class="search">
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <input type="text" name="search" placeholder="Tìm kiếm" />
+      </form>
+      <div class="profile">
+        <img src="../public/avatar.png" alt="" />
+        <div class="user">
+          <p class="username">{{ user.name }}</p>
+          <p class="rank">{{ user.rank }}</p>
+        </div>
+      </div>
+      <div class="util">
+        <span class="icon"><i class="fa-regular fa-envelope"></i></span>
+        <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+        <span class="icon bar"><i class="fa-solid fa-bars"></i></span>
+      </div>
+    </div>
+    <div class="nav">
+        <div class="cate">
+            <a href="./store.html"><span>Văn học</span></a>
+            <a href="./store.html"><span>Sách thiếu nhi</span></a>
+            <a href="./store.html"><span>Kinh tế</span></a>
+            <a href="./store.html"><span>Tiểu sử - Hồi kí</span></a>
+            <a href="./store.html"><span>Tâm lí - Kĩ năng sống</span></a>
+            <a href="./store.html"><span>Giáo khoa - Tham khảo</span></a>
+            <a href="./store.html"><span>Học ngoại ngữ</span></a>
+            <a href="./store.html"><span>Nuôi dạy con</span></a>
+        </div>
+
+    </div>
+    <main>
+        <div class="profile-panel panel">
+            <img src="../public/avatar.png" alt="" class="avatar">
+            <p class="username">{{ user.name }}</p>
+            <p class="rank">{{ user.rank }}</p>
+            <div>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Việt Nam</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-school"></i>
+                    <span>Đại học Kinh tế Quốc dân</span>
+                </div>
+                <div>
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>2023</span>
+                </div>
+            </div>
+        </div>
+        <div class="main-panel">
+          <div class="navigator">
+            <span class="focus">Hoạt động</span>
+            <span>Tủ sách</span>
+        </div>
+        <div class="post-panel">
+          <div class="post panel">
+            <div>
+              <img src="" alt="" class="avatar">
+            </div>
+            <div>
+              <div class="heading">
+                <h1>Đã đánh giá</h1>
+                <p class="name">"Thiên sứ nhà bên"</p>
+                <div>
+                  <span>4.7</span>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span>30 phút trước</span>
+              </div>
+              <div class="content">
+                <p>chiều hôm qua mình bắt gặp bạn nam áo trắng trong ảnh dắt xe hộ 1b nữ, 
+                  nhìn b ân cần ga lăng xỉu, cần tuyên dương và bảo tồn gấppp. Hy vọng những 
+                  b nam Neu khác cũng đáng iu như z
+                </p>
+                <span>
+                  <i class="fa-regular fa-heart"></i>
+                  <span>24</span>
+                </span>
+                <span>
+                  <i class="fa-regular fa-comment"></i>
+                  <span>3</span>
+                </span>
+                <span>
+                  <i class="fa-solid fa-retweet"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+        <div class="side-panel">
+
+        </div>
+    </main>
+</body>
+</html>
