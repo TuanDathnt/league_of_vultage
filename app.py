@@ -50,7 +50,22 @@ def register():
 
 @app.route("/browse/<category>/<subcategory>/<genre>/<age_range>/<sort_type>", methods = ['GET','POST'])
 def show_products(category, subcategory, genre, age_range, sort_type):
-  pass
+  sqlcommand = f"select * from Book where Category = '{category}'"
+  if subcategory != "null":
+    sqlcommand += f" and Subcategory = '{subcategory}'"
+  if genre != "null":
+    sqlcommand += f" and Genre = '{genre}'"
+  if age_range != "null":
+    sqlcommand += f" and Age_Range = '{age_range}'"
+  if sort_type != "null":
+    sorter = sort_type.split('_')
+    sqlcommand += f" order by {sorter[0]} {sorter[1]}"
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(sqlcommand)
+  book_list = cursor.fetchall()
+  conn.close()
+  return render_template("store.html", book_list = book_list)
 
 @app.route("/cart", methods = ['GET','POST'])
 def show_cart(account_id):
