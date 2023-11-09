@@ -9,8 +9,11 @@ lovdb = 'db/lovdb.db'
 
 @app.route("/")
 def index():
-  username = session['username']
-  return render_template("index.html",username = username)
+  if session.get('username'):
+    username = session['username']
+  else:
+    username = ""
+  return render_template("index.html", username = username)
 
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
