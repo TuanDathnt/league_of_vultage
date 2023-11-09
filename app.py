@@ -9,7 +9,8 @@ lovdb = 'db/lovdb.db'
 
 @app.route("/")
 def index():
-  return render_template("index.html",username="")
+  username = session['username']
+  return render_template("index.html",username = username)
 
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
@@ -58,7 +59,13 @@ def finalize_purchase(account_id):
 
 @app.route("/profile/<account_id>", methods = ['GET','POST'])
 def profile(account_id):
-  pass
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  sqlcommand = f"select * from Profile where Account_ID ='{account_id}'"
+  cursor.execute(sqlcommand)
+  profile = cursor.fetchone()
+  conn.close()
+  return render_template("profile.html", profile = profile)
 
 @app.route("/profile/achievement/<account_id>", methods = ['GET','POST'])
 def show_achievement(account_id):
