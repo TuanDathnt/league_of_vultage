@@ -30,8 +30,7 @@ def check_exists(username,password):
     result = False
     conn = sqlite3.connect(lovdb)
     cursor = conn.cursor()
-    sqlcommand = f"select * from Account where Username ='{username}' and Password = '{password}'"
-    cursor.execute(sqlcommand)
+    cursor.execute(f"select * from Account where Username ='{username}' and Password = '{password}'")
     data = cursor.fetchone()
     if len(data) > 0:
         result = True
@@ -79,8 +78,7 @@ def finalize_purchase(account_id):
 def profile(account_id):
   conn = sqlite3.connect(lovdb)
   cursor = conn.cursor()
-  sqlcommand = f"select * from Profile where Account_ID ='{account_id}'"
-  cursor.execute(sqlcommand)
+  cursor.execute(f"select * from Profile where Account_ID ='{account_id}'")
   profile = cursor.fetchone()
   conn.close()
   return render_template("profile.html", profile = profile)
@@ -95,7 +93,12 @@ def show_history(account_id):
 
 @app.route("/library/<account_id>", methods = ['GET', 'POST'])
 def show_library(account_id):
-  pass
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(f"select * from Library where Account_ID ='{account_id}' inner join Book on Book.Book_ID = Library.Book_ID")
+  library = cursor.fetchall()
+  conn.close()
+  return render_template("profile.html", library = library)
 
 @app.route("/read/<book_id>", methods = ['GET', 'POST'])
 def read(book_id):
