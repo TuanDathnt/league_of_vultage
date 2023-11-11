@@ -61,7 +61,34 @@ def valid_username(username):
 
   else:
     return username, ''
+def get_max_id():
+  conn = sqlite3.connect('db/lovdb.db')
+  cursor = conn.cursor()    
+  max_id=0
+  sqlcommand= "SELECT Max(Account_ID) from Account"
+  cursor.execute(sqlcommand)
+  max_id = cursor.fetchone()[0]
+  conn.close()
+  return max_id+1
+def execute_command(object):
+  conn = sqlite3.connect('db/lovdb.db')
+  cursor = conn.cursor() 
+  print(object)
+  # Câu lệnh SQL để chèn dữ liệu
+  insert_sql = '''
+  INSERT INTO Account
+  (Account_ID,Username,Password,Gmail) 
+  VALUES 
+  (?, ?, ?, ?)
+  '''
 
+  # Chèn dữ liệu vào bảng
+
+  cursor.execute(insert_sql, object)
+
+  conn.commit()
+  conn.close()
+    
 @app.route("/")
 def index():
   if "username" in session:
@@ -95,15 +122,28 @@ def logout():
 
 @app.route("/signup", methods = ['GET','POST'])
 def signup():
+  result=''
   if request.method=="GET":
-    return render_template("signup.html")
+    return render_template("signup.html",account_message='',password_message='',password_confirm_message='aa',result=result)
   else:
     username = request.form['username']
     password = request.form['password']
-    username = valid_username(username)[1]
-    password = valid_username(password)[1]
-    return render_template("signup.html",account_message=username,password_message=password,)
-
+    gmail= request.form['email']
+    password_confirm= request.form['re-enter-password']
+    
+    username_message = valid_username(username)[1]
+    password_message= valid_username(password)[1]
+    if password != password_confirm:
+      password_confirm=''
+    if password_confirm =='' or username_message!='' or password_message!='':
+      pass
+    else:
+     
+      object = (get_max_id(),username,password,gmail)
+      execute_command(object)
+      result="Dang Ky Thanh Cong"
+     
+    return render_template("signup.html",account_message=username_message,password_message=password_message,password_confirm_message=password_confirm,result=result)
       
 
 

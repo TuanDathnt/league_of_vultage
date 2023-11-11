@@ -25,8 +25,8 @@ cursor = conn.cursor()
 # ''')
 # Tạo một số dữ liệu mẫu
 books_data = [
-    (5,"TuanDat","123543","qstuandat@gmail.com"),
-    (6,"HinaTuanDat","12312312","qstuandat@gmail.com"),
+    (9,"1TuanDat","123543","qstuandat@gmail.com"),
+    (7,"2HinaTuanDat","12312312","qstuandat@gmail.com"),
     # Thêm thêm 18 dòng dữ liệu khác...
 ]
 
