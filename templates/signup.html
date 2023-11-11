@@ -20,15 +20,32 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         <img src="../public/big logo.png" alt="">
         <br>
         <br>
-        <form method="post">
+        <form method="POST" action="/signup">
             <input type="text" name="username" id="username" placeholder="Tên đăng nhập" required>
-            <label for="username" class="note">Tên đăng nhập phải là độc nhất, không bao gồm kí tự đặc biệt và phải bắt đầu bằng một chữ cái.</label>
-            <input type="text" name="email" id="email" placeholder="Địa chỉ email" required>
-            <label for="email" class="note">Hãy nhập email bạn thường xuyên sử dụng, chúng tôi sẽ gửi một mã xác nhận về địa chỉ này.</label>
+            <label for="username" class="note">
+                {% if account_message != ''%}
+                    <p>{{ account_message }}</p>
+                {% endif %}
+                    Tên đăng nhập phải là độc nhất, không bao gồm kí tự đặc biệt và phải bắt đầu bằng một chữ cái.
+                
+            </label>
+            <input type="email" name="email" id="email" placeholder="Địa chỉ email" required>
+            <label for="email" class="note">
+                {% if account_message != ''%}
+                    <p>{{ account_message }}</p>
+                {% endif %}
+                Hãy nhập email bạn thường xuyên sử dụng, chúng tôi sẽ gửi một mã xác nhận về địa chỉ này.</label>
             <input type="password" name="password" id="password" placeholder="Mật khẩu" required>
-            <label for="password" class="note">Mật khẩu phải từ 8 kí tự trở lên, phải bao gồm chữ cái in thường, chữ cái in hoa, chữ số và ít nhất một kí tự đặc biệt.</label>
+            <label for="password" class="note">
+                {% if account_message != ''%}
+                    <p>{{ account_message }}</p>
+                {% endif %}
+                Mật khẩu phải từ 8 kí tự trở lên, phải bao gồm chữ cái in thường, chữ cái in hoa, chữ số và ít nhất một kí tự đặc biệt.</label>
             <input type="password" name="re-enter-password" id="re-enter-password" placeholder="Nhập lại mật khẩu" required>
-            <label for="re-enter-password" class="note">Mật khẩu nhập lại phải trùng khớp với mật khẩu ở trên. Điều này nhằm xác nhận bạn đã nhớ mật khẩu khi tạo tài khoản.</label>
+            <label for="re-enter-password" class="note">
+                {% if account_message != ''%}
+                    <p>{{ account_message }}</p>
+                {% endif %}Mật khẩu nhập lại phải trùng khớp với mật khẩu ở trên. Điều này nhằm xác nhận bạn đã nhớ mật khẩu khi tạo tài khoản.</label>
             <div class="check">
                 <div>
                     <input type="checkbox">

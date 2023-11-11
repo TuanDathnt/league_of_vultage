@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trang chủ - League of Vulgate - Siêu ứng dụng đọc sách 2023</title>
+
     <link
       rel="shortcut icon"
       href="../public/favicon.png"
@@ -38,7 +39,11 @@
       </div>
       <div class="util">
         <span class="icon"><i class="fa-regular fa-envelope"></i></span>
-        <span class="icon bar"><i class="fa-solid fa-bars"></i></span>
+
+        <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+        <a href="/logout"
+          ><span class="icon bar"><i class="fa-solid fa-bars"></i></span
+        ></a>
       </div>
       {% else %}
       <div class="profile">
@@ -48,10 +53,10 @@
       <div class="util">
         <span class="icon"><i class="fa-regular fa-envelope"></i></span>
         <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
-        <span class="icon bar"><i class="fa-solid fa-bars"></i></span>
       </div>
+      {% endif %}
     </div>
-    {% endif %}
+
     <main>
       <div class="main-panel">
         <div class="big-banner panel">
