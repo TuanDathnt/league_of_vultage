@@ -1,0 +1,8 @@
+Library - Status:
+0 - Unread
+1 - Currently reading
+2 - Completed
+
+Order - Form:
+0 - Physical
+1 - Digital  
