@@ -17,7 +17,7 @@ main {
 }
 
 .filter {
-    padding-bottom: 32px;
+    padding-bottom: 16px;
 }
 
 .filter h1 {
@@ -28,7 +28,12 @@ main {
     line-height: normal;
 }
 
-.fiter p, .filter label {
+.filter div {
+    padding-left: 8px;
+    padding-bottom: 8px;
+}
+
+.filter label {
     color: rgba(30, 30, 30, 0.75);
     font-size: 16px;
     font-style: normal;
@@ -36,16 +41,25 @@ main {
     line-height: normal;
 }
 
-.filter p.focus {
+.filter label.focus {
     color: #F97C1E;
+}
+
+.filter label:hover {
+    opacity: 75%;
 }
 
 .view-all {
     color: #FF6EC8;
     font-size: 16px;
-    font-style: bold;
+    font-style: normal;
     font-weight: 500;
     line-height: normal;
+    cursor: pointer;
+}
+
+.view-all:hover {
+    font-weight: 700;
 }
 
 .sort {
@@ -76,4 +90,11 @@ main {
 
 .book-list img {
     width: 160px;
+    padding-bottom: 16px;
+}
+
+.book-list img:hover {
+    width: 168px;
+    padding-bottom: 0;
+    cursor: pointer;
 }
