@@ -4,7 +4,7 @@
 
 main {
     display: grid;
-    grid-template-columns: 288px auto 288px;
+    grid-template-columns: 288px auto;
     grid-gap: 32px;
     padding: 64px;
 }
@@ -94,6 +94,7 @@ main {
 }
 
 .main-panel .heading div i {
+    font-size: 10px;
     color: #FF6EC8;
 }
 
