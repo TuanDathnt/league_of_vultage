@@ -21,15 +21,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         <br>
         <br>
         <form method="POST" action="/signup">
+            {% if username != ''%}
+            <input type="text" name="username" id="username" placeholder="Tên đăng nhập" required value={{username}}>
+            {%else%}
             <input type="text" name="username" id="username" placeholder="Tên đăng nhập" required>
+            {%endif%}
             <label for="username" class="note">
                 {% if account_message != ''%}
                     <p>{{ account_message }}</p>
                 {% endif %}
                     Tên đăng nhập phải là độc nhất, không bao gồm kí tự đặc biệt và phải bắt đầu bằng một chữ cái.
-                
+            
             </label>
+            {% if username != ''%}
+            <input type="email" name="email" id="email" placeholder="Địa chỉ email" required value ={{email}}>
+            {%else%}
             <input type="email" name="email" id="email" placeholder="Địa chỉ email" required>
+            {%endif%}
+          
             <label for="email" class="note">
                
                 Hãy nhập email bạn thường xuyên sử dụng, chúng tôi sẽ gửi một mã xác nhận về địa chỉ này.</label>

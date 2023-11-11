@@ -123,6 +123,7 @@ def logout():
 @app.route("/signup", methods = ['GET','POST'])
 def signup():
   result=''
+  username=''
   if request.method=="GET":
     return render_template("signup.html",account_message='',password_message='',password_confirm_message='aa',result=result)
   else:
@@ -142,8 +143,8 @@ def signup():
       object = (get_max_id(),username,password,gmail)
       execute_command(object)
       result="Dang Ky Thanh Cong"
-     
-    return render_template("signup.html",account_message=username_message,password_message=password_message,password_confirm_message=password_confirm,result=result)
+   
+    return render_template("signup.html",account_message=username_message,password_message=password_message,password_confirm_message=password_confirm,result=result,username=username,email=gmail)
       
 
 
