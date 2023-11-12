@@ -23,7 +23,7 @@ def check_account(username):
   cursor = conn.cursor()
   cursor.execute(f"select * from Account where Username ='{username}'")
   data = cursor.fetchone()
-  if len(data) > 0:
+  if data:
       result = True
   conn.close()
   return result
@@ -62,7 +62,7 @@ def valid_username(username):
   else:
     return username, ''
 def get_max_id():
-  conn = sqlite3.connect('db/lovdb.db')
+  conn = sqlite3.connect(lovdb)
   cursor = conn.cursor()    
   max_id=0
   sqlcommand= "SELECT Max(Account_ID) from Account"
@@ -136,40 +136,49 @@ def signup():
     password_message= valid_username(password)[1]
     if password != password_confirm:
       password_confirm=''
+    if check_account(username):
+        username_message = "Tai Khoan da ton tai"
     if password_confirm =='' or username_message!='' or password_message!='':
-      pass
+     pass
     else:
      
       object = (get_max_id(),username,password,gmail)
       execute_command(object)
       result="Dang Ky Thanh Cong"
-   
+    
     return render_template("signup.html",account_message=username_message,password_message=password_message,password_confirm_message=password_confirm,result=result,username=username,email=gmail)
-      
+# DONEEEEEEEEEEEEEEEEEEEE
 
 
-@app.route("/browse/<category>/<subcategory>/<genre>/<age_range>/<sort_type>", methods = ['GET','POST'])
-def show_products(category, subcategory, genre, age_range, sort_type):
+@app.route("/store/<category>/<subcategory>/<genre>/<age_range>/<sort_type>", methods = ['GET','POST'])
+def show_products(category=None, subcategory=None, genre=None, age_range=None, sort_type=None):
+  if category==None:
+    return render_template("store.html")
   sqlcommand = f"select * from Book where Category = '{category}'"
-  if subcategory != "null":
+  if subcategory != None:
     sqlcommand += f" and Subcategory = '{subcategory}'"
-  if genre != "null":
+  if genre !=  None:
     sqlcommand += f" and Genre = '{genre}'"
-  if age_range != "null":
+  if age_range !=  None:
     sqlcommand += f" and Age_Range = '{age_range}'"
-  if sort_type != "null":
+  if sort_type !=  None:
     sorter = sort_type.split('_')
     sqlcommand += f" order by {sorter[0]} {sorter[1]}"
-  conn = sqlite3.connect(lovdb)
-  cursor = conn.cursor()
-  cursor.execute(sqlcommand)
-  book_list = cursor.fetchall()
-  conn.close()
+    conn = sqlite3.connect(lovdb)
+    cursor = conn.cursor()
+    cursor.execute(sqlcommand)
+    book_list = cursor.fetchall()
+    conn.close()
+
   return render_template("store.html", book_list = book_list)
 
 @app.route("/cart", methods = ['GET','POST'])
-def show_cart(account_id):
-  pass
+def show_cart():
+  if "username" in session:
+    username=session.get("username")
+  else:
+    username=''
+  return render_template('cart.html',username=username)
 
 @app.route("/cart/finalize_purchase", methods = ['GET','POST'])
 def finalize_purchase(account_id):

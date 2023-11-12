@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/cart.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="./index.html"><img src="../public/logo.png" alt="aaaa" /></a>
+      </div>
+      <form action="post" class="search">
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <input type="text" name="search" placeholder="Tìm kiếm" />
+      </form>
+      {% if username!="" %}
+      <div class="profile">
+        <img src="../public/avatar.png" alt="avatar" />
+        <div class="user">
+          <p class="username">{{username}}</p>
+          <p class="rank">--user.rank</p>
+        </div>
+      </div>
+      <div class="util">
+        <span class="icon"><i class="fa-regular fa-envelope"></i></span>
+
+        <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+        <a href="/logout"
+          ><span class="icon bar"><i class="fa-solid fa-bars"></i></span
+        ></a>
+      </div>
+      {% else %}
+      <div class="profile">
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      </div>
+      <div class="util">
+        <span class="icon"><i class="fa-regular fa-envelope"></i></span>
+        <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+      </div>
+      {% endif %}
+    </header>
+  </body>
+</html>
