@@ -22,7 +22,7 @@
       <div>
         <a href="./index.html"><img src="../public/logo.png" alt="" /></a>
       </div>
-      <form action="post" class="search">
+      <form action="/store" class="search">
         <button type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
@@ -62,14 +62,101 @@
     </div>
     <div class="nav">
       <div class="cate">
-        <span class="focus">Văn học</span>
-        <span>Sách thiếu nhi</span>
-        <span>Kinh tế</span>
-        <span>Tiểu sử - Hồi kí</span>
-        <span>Tâm lí - Kĩ năng sống</span>
-        <span>Giáo khoa - Tham khảo</span>
-        <span>Học ngoại ngữ</span>
-        <span>Nuôi dạy con</span>
+        {% if focus=='Văn học'%}
+        <a href="/store?filter=Văn học">
+          <span class="focus">Văn học</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Văn học">
+          <span>Văn học</span>
+        </a>
+        {% endif %}
+        <span></span>
+        {% if focus=='Sách thiếu nhi'%}
+        <a href="/store?filter=Sách thiếu nhi">
+          <span class="focus">Sách thiếu nhi</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Sách thiếu nhi">
+          <span>Sách thiếu nhi</span>
+        </a>
+        {% endif %}
+        <span></span>
+
+        {% if focus=='Kinh tế'%}
+        <a href="/store?filter=Kinh tế">
+          <span class="focus">Kinh tế</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Kinh tế">
+          <span>Kinh tế</span>
+        </a>
+        {% endif %}
+        <span></span>
+
+        {% if focus=='Tiểu sử - Hồi kí'%}
+        <a href="/store?filter=Tiểu sử - Hồi kí">
+          <span class="focus">Tiểu sử - Hồi kí</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Tiểu sử - Hồi kí">
+          <span>Tiểu sử - Hồi kí</span>
+        </a>
+        {% endif %}
+        <span></span>
+
+        {% if focus=='Tâm lí - Kĩ năng sống'%}
+        <a href="/store?filter=Tâm lí - Kĩ năng sống">
+          <span class="focus">Tâm lí - Kĩ năng sống</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Tâm lí - Kĩ năng sống">
+          <span>Tâm lí - Kĩ năng sống</span>
+        </a>
+        {% endif %}
+
+        <span></span>
+        {% if focus=='Giáo khoa - Tham khảo'%}
+        <a href="/store?filter=Giáo khoa - Tham khảo">
+          <span class="focus">Giáo khoa - Tham khảo</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Giáo khoa - Tham khảo">
+          <span>Giáo khoa - Tham khảo</span>
+        </a>
+        {% endif %}
+        <span></span>
+
+        {% if focus=='Học ngoại ngữ'%}
+        <a href="/store?filter=Học ngoại ngữ">
+          <span class="focus">Học ngoại ngữ</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Học ngoại ngữ">
+          <span>Học ngoại ngữ</span>
+        </a>
+        {% endif %}
+        <span></span>
+
+        {% if focus=='Sách quốc tế'%}
+        <a href="/store?filter=Sách quốc tế">
+          <span class="focus">Sách quốc tế</span>
+        </a>
+        {% else %}
+        <a href="/store?filter=Sách quốc tế">
+          <span>Sách quốc tế</span>
+        </a>
+        {% endif %}
+        <span></span>
+        {% if focus == 'Coding' %}
+        <a href="/store?filter=Coding">
+          <span class="focus">Coding</span>
+        </a>
+        {%else%}
+        <a href="/store?filter=Coding">
+          <span>Coding</span>
+        </a>
+        {% endif %}
       </div>
     </div>
     <main>
@@ -151,6 +238,14 @@
           <a href="book/{{book[0]}}">
             <div class="book">
               <img src="{{book[11]}}" alt="{{book[1]}}" />
+              <a href=""
+                ><button class="read" style="width: 100%">ĐỌC NGAY</button></a
+              >
+              <a href=""
+                ><button class="buy-book" style="width: 100%">
+                  THÊM VÀO GIỎ
+                </button></a
+              >
             </div>
           </a>
           {%endfor%}

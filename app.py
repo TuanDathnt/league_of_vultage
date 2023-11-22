@@ -109,7 +109,7 @@ def login():
       else :
         return  redirect(url_for("login"))
   else:
-      if "user" in session:
+      if "username" in session:
           return redirect(url_for("/"))
 
       return render_template("login.html")
@@ -152,10 +152,15 @@ def signup():
 
 @app.route("/store", methods = ['GET'])
 def show_products():
-  
+  search=request.args.get('search',default="",type=str)
   page=request.args.get('page',default=1,type=int)
-  filter = request.args.get('filter',default=all,type=str)
-
+  filter = request.args.get('filter',default='all',type=str)
+  books=[]
+  if 'username' in session:
+    username = session['username']
+  else:
+    username=""
+  focus=""
   # if category==None:
   #   return render_template("store.html")
   # sqlcommand = f"select * from Book where Category = '{category}'"
@@ -173,17 +178,30 @@ def show_products():
   #   cursor.execute(sqlcommand)
   #   book_list = cursor.fetchall()
   #   conn.close()
-  if 'username' in session:
-    username = session['username']
+  if search != "":
+    conn=sqlite3.connect(lovdb)
+    cursor = conn.cursor()
+    cursor.execute(F"select * from Book where Book_Name Like '%{search}%'")
+    books = cursor.fetchall()
+    conn.close()
+    return render_template("store.html",username=username,books=books)
+  
+  if filter!='all':
+    conn=sqlite3.connect(lovdb)
+    cursor = conn.cursor()
+    cursor.execute(F"select * from Book where Book_Category Like '%{filter}%'")
+    books = cursor.fetchall()
+    conn.close()
   else:
-    username=""
-  conn=sqlite3.connect(lovdb)
-  cursor = conn.cursor()
-  cursor.execute(F"select * from Book")
-  books = cursor.fetchall()
-  conn.close()
-  print(books[0])
-  return render_template("store.html",username=username,books=books)
+    conn=sqlite3.connect(lovdb)
+    cursor = conn.cursor()
+    cursor.execute(F"select * from Book")
+    books = cursor.fetchall()
+    conn.close()
+    print(books[0])
+  
+  print(filter)
+  return render_template("store.html",username=username,books=books,focus=filter)
 @app.route("/book/<id>")
 def book(id):
   if "username" in session:

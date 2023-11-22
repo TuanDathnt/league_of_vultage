@@ -23,7 +23,7 @@
       <div>
         <a href="./index.html"><img src="../public/logo.png" alt="" /></a>
       </div>
-      <form action="post" class="search">
+      <form action="/store" class="search">
         <button type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
@@ -34,7 +34,7 @@
         <img src="../public/avatar.png" alt="" />
         <div class="user">
           <p class="username">{{username}}</p>
-          <p class="rank">--user.rank</p>
+          <p class="rank">{{rank}}</p>
         </div>
       </div>
       <div class="util">
@@ -44,7 +44,8 @@
         </a>
 
         <a href="/logout"
-          ><span class="icon bar"><i class="fa-solid fa-bars"></i></span
+          ><span class="icon bar"
+            ><i class="fa-solid fa-right-from-bracket"></i></span
         ></a>
       </div>
       {% else %}
@@ -61,14 +62,20 @@
       </div>
       {% endif %}
     </div>
-    <a href="/store">Store NOW</a>
+
     <main>
       <div class="main-panel">
         <div class="big-banner panel">
           <h1>Tuyển tập 300 bài code thiếu nhi</h1>
           <p>Bộ sách dành cho dân lập trình</p>
-          <button class="big-btn">Đọc ngay</button>
+          <a href="/store?filter=programming">
+            <button class="big-btn">Đọc ngay</button>
+          </a>
         </div>
+        <a href="/store">
+          <button class="big-btn" style="width: 100%">Store Now</button>
+        </a>
+
         <!--Fake fake -->
         <div class="books" id="trending">
           <div class="heading">
