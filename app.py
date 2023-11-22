@@ -150,27 +150,53 @@ def signup():
 # DONEEEEEEEEEEEEEEEEEEEE
 
 
-@app.route("/store/<category>/<subcategory>/<genre>/<age_range>/<sort_type>", methods = ['GET','POST'])
-def show_products(category=None, subcategory=None, genre=None, age_range=None, sort_type=None):
-  if category==None:
-    return render_template("store.html")
-  sqlcommand = f"select * from Book where Category = '{category}'"
-  if subcategory != None:
-    sqlcommand += f" and Subcategory = '{subcategory}'"
-  if genre !=  None:
-    sqlcommand += f" and Genre = '{genre}'"
-  if age_range !=  None:
-    sqlcommand += f" and Age_Range = '{age_range}'"
-  if sort_type !=  None:
-    sorter = sort_type.split('_')
-    sqlcommand += f" order by {sorter[0]} {sorter[1]}"
-    conn = sqlite3.connect(lovdb)
-    cursor = conn.cursor()
-    cursor.execute(sqlcommand)
-    book_list = cursor.fetchall()
-    conn.close()
+@app.route("/store", methods = ['GET'])
+def show_products():
+  
+  page=request.args.get('page',default=1,type=int)
+  filter = request.args.get('filter',default=all,type=str)
 
-  return render_template("store.html", book_list = book_list)
+  # if category==None:
+  #   return render_template("store.html")
+  # sqlcommand = f"select * from Book where Category = '{category}'"
+  # if subcategory != None:
+  #   sqlcommand += f" and Subcategory = '{subcategory}'"
+  # if genre !=  None:
+  #   sqlcommand += f" and Genre = '{genre}'"
+  # if age_range !=  None:
+  #   sqlcommand += f" and Age_Range = '{age_range}'"
+  # if sort_type !=  None:
+  #   sorter = sort_type.split('_')
+  #   sqlcommand += f" order by {sorter[0]} {sorter[1]}"
+  #   conn = sqlite3.connect(lovdb)
+  #   cursor = conn.cursor()
+  #   cursor.execute(sqlcommand)
+  #   book_list = cursor.fetchall()
+  #   conn.close()
+  if 'username' in session:
+    username = session['username']
+  else:
+    username=""
+  conn=sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(F"select * from Book")
+  books = cursor.fetchall()
+  conn.close()
+  print(books[0])
+  return render_template("store.html",username=username,books=books)
+@app.route("/book/<id>")
+def book(id):
+  if "username" in session:
+    username=session.get("username")
+  else:
+    username=''
+  conn=sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(F"select * from Book where Book_ID={id}")
+  book = cursor.fetchone()
+  conn.close()
+  print(book)
+  return render_template('book.html',username=username,book=book)
 
 @app.route("/cart", methods = ['GET','POST'])
 def show_cart():
