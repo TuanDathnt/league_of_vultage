@@ -1,0 +1,40 @@
+body {
+    background: #EAE4D3;
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    padding: 0 128px;
+}
+
+.heading {
+
+    align-items: center;
+}
+
+h1 {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+h4 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.bar {
+    font-size: 32px;
+    padding-bottom: 128px;
+}
+
+.bar i {
+    padding: 0 16px;
+    cursor: pointer;
+}
