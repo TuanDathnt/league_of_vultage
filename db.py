@@ -53,15 +53,38 @@ books_data = [
     (36,"Cha Voi: Dạy Con Nên Người Ở Thời Đại Số","Nuôi dạy con","Cẩm nang làm cha mẹ","","Trương Nguyện Thành","NXB Tổng Hợp TPHCM","2020-07-14",0,8.6,120000,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/cha_voi_day_con_nen_nguoi_o_thoi_dai_so/2022_12_29_17_05_36_1-390x510.jpg",""),
     (37,"Thực Đơn Ăn Dặm Kiểu Nhật","Nuôi dạy con","Dinh dưỡng - Sức khỏe cho con","","Reiko Ueda, Junko Ueda","NXB Lao Động","2022-01-31",0,7.7,134000,"https://cdn0.fahasa.com/media/catalog/product/t/h/th_c-_n-_n-d_m-ki_u-nh_t---b_a-1_1.jpg",""),
     (38,"Dạy Con Dùng Tiền","Nuôi dạy con","Phát triển kỹ năng - Trí tuệ cho trẻ","","Adam Khoo, Keon Chee","NXB Trẻ","2022-07-25",0,9,63750,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/day_con_dung_tien_tai_ban_2019/2021_06_08_16_20_22_1-390x510.jpg",""),
+    (39,"Hẹn Nhau Phía Sau Tan Vỡ","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","An","NXB Phụ Nữ Việt Nam","2020-09-08",5,7.8,73100,"https://cdn0.fahasa.com/media/catalog/product/b/i/bia_hen-nhau-sau-tan-vo_1_1.jpg",""),
+    (40,"Người Tập Lớn","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Chà","2021-11-13",0,8.9,92650,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/nguoi_tap_lon/2023_03_06_16_37_20_1-390x510.png",""),
+    (41,"Lê La Từ Nhà Ra Ngõ","Văn học","Truyện ngắn - Tản văn","Tản văn","Làn","2022-10-21",0,8.7,75650,"https://cdn0.fahasa.com/media/catalog/product/b/i/bia_le-la-tu-nha-ra-ngo.jpg",""),
+    (42,"Stars","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Cường Lê","NXB Thế Giới","2021-03-30",4,8.1,111300,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/stars/2023_05_09_16_28_32_1-390x510.jpg",""),
+    (44,"Màu Nhạt Nắng","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","BS Wynn Huỳnh Trần","NXB Thế Giới","2020-04-11",0,9.1,126650,"https://cdn0.fahasa.com/media/catalog/product/9/7/9786043451993_1.jpg",""),
+    (45,"Không Sao Đâu, Lại Bắt Đầu","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Mr. Q","NXB Dân Trí","2021-10-27",0,9.3,71400,"https://cdn0.fahasa.com/media/catalog/product/8/9/8935325011375_1_.png",""),
+    (46,"Sông","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Nguyễn Bảo Trung","NXB Dân Trí","2020-12-30",0,8.3,119000,"https://cdn0.fahasa.com/media/catalog/product/s/_/s_ng_b_a_1.jpg",""),
+    (47,"Ủ Một Miền Thơm","Văn học","Truyện ngắn - Tản văn","Truyện ngắn""Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Vũ Thượng","NXB Dân Trí","2022-09-11",0,9.2,93500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/u_mot_mien_thom_tai_ban_2022/2022_07_08_10_12_47_1-390x510.jpg",""),
+    (48,"1cm Đến Hạnh Phúc - 1cm Diving","Văn học","Truyện ngắn - Tản văn","Tản văn","Tae Soo, Mun Jeong","NXB Đồng Nai","https://cdn0.fahasa.com/media/catalog/product/1/c/1cm-_n-h_nh-ph_c_b_a-tr_c---copy.jpg",""),
+    (49,"Homo Deus - Lược Sử Tương Lai","Tiểu sử - Hồi kí","Lịch sử","","Yuval Noah Harari","NXB Thế Giới","2020-10-07",0,9.7,121500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/homo_deus___luoc_su_tuong_lai/2023_05_25_15_11_18_1-390x510.jpg",""),
+    (50,"Escalante - Người Thầy Xuất Sắc Nhất Nước Mỹ","Tiểu sử - Hồi kí","Câu chuyện cuộc đời","","Jay Mathews","NXB Đại Học Sư Phạm","2022-11-11",0,8.7,85250,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/escalante___nguoi_thay_xuat_sac_nhat_nuoc_my/2022_11_02_14_23_31_1-390x510.jpg",""),
+    (51,"Percy Jackson And The Olympians 1: Lightning Thief","Sách quốc tế","Văn học","Giả tường","Rick Riordan","Penguin Books","2022-01-19",3,9,146700,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/percy_jackson_and_the_olympians_1_lightning_thief/2022_12_08_16_51_03_1-390x510.jpg",""),
+    (52,"Thể Xác Và Tâm Hồn","Văn học","Tác phẩm kinh điển","","Maxence Vander Meersch","NXB Văn học","2022-07-07",0,9.2,329800,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/the_xac_va_tam_hon_bia_cung_tai_ban_2022/2022_09_09_15_56_33_1-390x510.jpg",""),
+    (53,"Bố Già","Văn học","Tác phẩm kinh điển","","Mario Puzo","NXB Văn học","2021-09-13",0,9,127500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/bo_gia_bm___tai_ban_2022/2022_07_27_14_47_26_1-390x510.jpg",""),
+    (54,"Những Tấm Lòng Cao Cả","Văn học","Tác phẩm kinh điển","","Edmondo De Amicis","NXB Văn học","2021-01-23",0,9.4,73700,"https://cdn0.fahasa.com/media/catalog/product/8/9/8935095630431.jpg",""),
+    (55,"Ba Người Lính Ngự Lâm","Văn học","Tác phẩm kinh điển","","Alexandre Dumas","NXB Văn học","2022-06-15",0,9,178500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/ba_nguoi_linh_ngu_lam_tai_ban_2019/2021_06_23_09_13_32_1-390x510.jpg",""),
+    (56,"Không Gia Đình","Văn học","Tác phẩm kinh điển","","Hector Malot","NXB Văn Học","2020-05-18",0,8.9,111300,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/khong_gia_dinh_tai_ban_2022/2022_06_20_13_38_18_1-390x510.jpg",""),
+    (57,"Zarathustra Đã Nói Như Thế","Văn học","Tác phẩm kinh điển","","Friedrich Nietzsche","NXB Dân Trí","2021-09-20",0,8.8,212500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/zarathustra_da_noi_nhu_the___bia_cung/2022_07_16_10_27_06_1-390x510.png",""),
+    (58,"Trên Sa Mạc Và Trong Rừng Thẳm","Văn học","Tác phẩm kinh điển","","Henryk Sienkiewicz","NXB Kim Đồng","2020-10-11",0,8.5,83300,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/tren_sa_mac_va_trong_rung_tham_tai_ban_2019/2020_10_03_10_57_23_1-390x510.jpg",""),
+    (59,"Từ Điển Thần Thoại - Hy Lạp-La Mã","Văn học","Tác phẩm kinh điển","","PGS TS Nguyễn Văn Dân","NXB Hội Nhà Văn","2020-01-09",0,8.6,216000,"https://cdn0.fahasa.com/media/catalog/product/t/u/tu_dien_than_thoai_b1.jpg",""),
+    (60,"Kim Các Tự","Văn học","Tác phẩm kinh điển","","Mishima Yukio","NXB Dân Trí","2022-05-17",0,8.2,170000,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/kim_cac_tu/2023_05_17_11_48_51_1-390x510.jpg",""),
+    (61,"Em Học Lập Trình Coding","Coding","Lập trình cơ bản","","Randy Lynn","NXB Dân Trí","2022-04-05",1,7.9,109000,"https://cdn0.fahasa.com/media/catalog/product/e/m/em-hoc-lap-trinh-coding----b_a-1.jpg","")
+    (62,"Tớ Học Lập Trình - Làm Quen Với Lập Trình Scratch","Coding","Lập trình cơ bản","","Rosie Dickins, Louie Stowell","NXB Thế Giới","2021-09-01",1,8,89250,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/to_hoc_lap_trinh___lam_quen_voi_lap_trinh_scratch/2021_09_25_11_37_03_1-390x510.jpg",""),
+    (63,"Giáo Trình Kỹ Thuật Lập Trình C Căn Bản & Nâng Cao","Coding","Lập trình cơ bản","","GS. Phạm Văn Ất, ThS. Đỗ Văn Tuấn","NXB Bách Khoa Hà Nội","2022-09-18",0,8.5,157500,"https://cdn0.fahasa.com/media/catalog/product/c/8/c8d7c174cbca49acb9b8ef31cb690557_1.jpg","")
     # Thêm thêm 18 dòng dữ liệu khác...
 ]
 
 # Câu lệnh SQL để chèn dữ liệu
-insert_sql = "INSERT INTO Book (Book_ID,Book_Name,Book_Category,Book_Subcategory,Book_Genre,Author,Publisher,Date_Published,Age_Range,Rating,Price,Picture,Description) VALUES (?, ?, ?, ?,?,?,?,?,?,?,?,?,?)"
 
 # Chèn dữ liệu vào bảng
 for book in books_data:
-    cursor.execute(insert_sql, book)
+    cursor.execute(f"INSERT INTO Book (Book_ID,Book_Name,Book_Category,Book_Subcategory,Book_Genre,Author,Publisher,Date_Published,Age_Range,Rating,Price,Picture,Description) VALUES ({book[0]},N'{book[1]}',N'{book[2]}',N'{book[3]}',N'{book[4]}',N'{book[5]}',N'{book[6]}',{book[7]},{book[8]},{book[9]},{book[10]},{book[11]},N'{book[12]}')")
 
 # Lưu thay đổi và đóng kết nối
 conn.commit()
