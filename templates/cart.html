@@ -9,6 +9,12 @@
       href="../public/favicon.png"
       type="image/x-icon"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="../static/css/nav.css" />
     <link rel="stylesheet" href="../static/css/cart.css" />
@@ -16,12 +22,27 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
   </head>
   <body>
     <div class="nav">
       <div>
-        <a href="./index.html"><img src="../public/logo.png" alt="" /></a>
+        <a href="/"><img src="../static/public/logo.png" alt="" /></a>
       </div>
       <form action="/store" class="search">
         <button type="submit">
@@ -31,10 +52,9 @@
       </form>
       {% if username!="" %}
       <div class="profile">
-        <img src="../public/avatar.png" alt="" />
+        <img src="../static/public/avatar.png" alt="" />
         <div class="user">
           <p class="username">{{username}}</p>
-          <p class="rank">--user.rank</p>
         </div>
       </div>
       <div class="util">
@@ -61,5 +81,92 @@
       </div>
       {% endif %}
     </div>
+    <div class="container">
+      <button
+        class="btn btn-secondary"
+        type="button"
+        style="
+          width: 100%;
+          height: 50px;
+          background-color: #f97c1e;
+          font-size: 25px;
+          font-weight: 900;
+        "
+      >
+        YOUR SHOPPING CART
+      </button>
+    </div>
+    <main>
+      <div books_list>
+        {%for book in carts%}
+        <div class="book container">
+          <div class="book-img">
+            <img src="{{book[11]}}" alt="book[1]" style="width: 200px" />
+          </div>
+          <div class="book__description" style="width: 50%">
+            <p>{{book[5]}}</p>
+            <p>{{book[1]}}</p>
+          </div>
+          <input
+            min="1"
+            type="number"
+            id="{{book[0]}}"
+            style="width: 100px; height: 20px"
+            value="1"
+            class="quantity"
+            name="{{book[0]}}"
+          />
+          <p id="{{book[0]}}s" money="{{book[10]}}">{{book[10]}} đ</p>
+          <a
+            href="/cart/delete/{{book[0]}}
+          "
+          >
+            <button type="button" class="btn btn-danger" id="deleteButton">
+              Xóa
+            </button></a
+          >
+        </div>
+        <hr style="width: 60%" />
+        {%endfor%}
+      </div>
+
+      <div class="container">
+        <div class="pay">
+          <p style="font-size: 36px; font-weight: 700">TONG TIEN</p>
+
+          <div>
+            <p style="font-size: 36px; font-weight: 700" id="pay_total">
+              {{money}}
+            </p>
+            <a href="/pay">
+              <button type="submit" class="btn btn-primary">THANH TOAN</button>
+            </a>
+
+            <a href="/store">
+              <button type="button" class="btn btn-primary">MUA THEM</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll(".quantity").forEach((el) =>
+        el.addEventListener("input", function (e) {
+          tong = 0;
+          var value = e.target.value;
+          let money =
+            parseFloat(
+              document.getElementById(e.target.id + "s").attributes.money.value
+            ) * parseFloat(e.target.value);
+          document.getElementById(e.target.id + "s").innerHTML = money;
+          document.querySelectorAll("[money]").forEach((el) => {
+            tong = tong + parseFloat(el.innerHTML);
+            console.log(el);
+          });
+          console.log(document.querySelector("#pay_total"));
+          document.querySelector("#pay_total").innerHTML = tong;
+        })
+      );
+    </script>
   </body>
 </html>

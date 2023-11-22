@@ -25,7 +25,7 @@ cursor = conn.cursor()
 # ''')
 # Tạo một số dữ liệu mẫu
 books_data = [
-    (11,"Dám Nghĩ Lại","Tâm lý - Kĩ năng sống", "Kĩ năng sống","","Adam Grant","NXB Dân Trí","2021-12-09",4,7.5,117600,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/dam_nghi_lai/2022_11_23_14_16_37_1-390x510.png",""),
+   
     (12,"Flow - Dòng Chảy","Tâm lý - Kĩ năng sống", "Kĩ năng sống","","Mihaly Csikszentmihalyi","NXB Dân Trí","2021-12-09",4,7.8,159600,"https://cdn0.fahasa.com/media/catalog/product/8/9/8935086854792.png",""),
     (13,"Tâm Lý Học Mối Quan Hệ","Tâm lý - Kĩ năng sống","Tâm lý","","Choi Kwanghyun","NXB Thanh Niên","2020-05-04",5,8.1,83300,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/tam_ly_hoc_moi_quan_he/2023_02_07_09_03_07_1-390x510.jpg",""),
     (14," Minh Triết Nội Tại","Tâm lý - Kĩ năng sống","Tâm lý","","David R Hawkins MD, PhD","NXB Thanh Niên","2021-10-21",5,7.8,143650,"https://cdn0.fahasa.com/media/catalog/product/8/9/8936066695152_1.jpg",""),
@@ -33,7 +33,7 @@ books_data = [
     (16,"Nghĩ Giàu & Làm Giàu","Kinh tế","Quản trị - Lãnh đạo","","Napoleon Hill","NXB Tổng Hợp TPHCM","2020-09-11",0,8.4,86400,"https://cdn0.fahasa.com/media/catalog/product/n/g/nghigiaulamgiau_110k-01_bia_1.jpg",""),
     (17,"Một Đời Quản Trị","Kinh tế","Quản trị - Lãnh đạo","","Phan Văn Trường","NXB Trê","2022-09-30",0,9.1,160000,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/mot_doi_quan_tri_tai_ban_2019/2023_03_21_16_14_02_1-390x510.jpg",""),
     (18,"Kênh Tương Tác Chủ Đạo - The Master Channel","Kinh tế","Marketing - Bán hàng","NXB Công Thương","2021-03-13",0,9,134100,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/kenh_tuong_tac_chu_dao___the_master_channel/2023_11_11_10_27_24_1-390x510.jpg",""),
-    (19,"Thấu Hiểu Khách Hàng","Kinh tế","Marketing - Bán hàng","","Đặng Thúy Hà","NXB Công Thương","2019-12-09",0,8.7,215200,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/thau_hieu_khach_hang/2023_03_21_16_55_12_1-390x510.jpg","")
+   
     (20," Chinh Phục Luyện Thi Vào 10 Môn Tiếng Anh Theo Chủ Đề","Giáo khoa - Tham khảo","Sách tham khảo","","Dương Hương","NXB Đại Học Quốc Gia Hà Nội","2022-09-04",3,7.9,127200,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/chinh_phuc_luyen_thi_vao_10_mon_tieng_anh_theo_chu_de/2023_03_23_16_21_38_1-390x510.jpg",""),
     (21,"Luyện Tập Mĩ Thuật 5 - Tập 2","Giáo khoa - Tham khảo","Sách tham khảo","","Nhiều Tác Giả","NXB Giáo Dục Việt Nam","2020-10-10",2,8.1,21000,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/luyen_tap_mi_thuat_5_2_n3/2023_04_24_16_58_18_1-390x510.jpg",""),
     (22,"Bồi Dưỡng Năng Lực Tự Học Toán 8","Giáo khoa - Tham khảo","Sách tham khảo","","Đặng Đức Trọng, Nguyễn Đức Tấn","NXB Đại Học Quốc Gia Hà Nội","2021-11-09",2,8,85500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/boi_duong_nang_luc_tu_hoc_toan_8/2023_09_28_17_00_58_1-390x510.jpg",""),

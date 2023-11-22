@@ -10,6 +10,7 @@
       href="../public/favicon.png"
       type="image/x-icon"
     />
+
     <link rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="../static/css/nav.css" />
     <link rel="stylesheet" href="../static/css/index.css" />
@@ -21,7 +22,7 @@
   <body>
     <div class="nav">
       <div>
-        <a href="./index.html"><img src="../public/logo.png" alt="" /></a>
+        <a href="/"><img src="../static/public/logo.png" alt="" /></a>
       </div>
       <form action="/store" class="search">
         <button type="submit">
@@ -31,7 +32,7 @@
       </form>
       {% if username!="" %}
       <div class="profile">
-        <img src="../public/avatar.png" alt="" />
+        <img src="../static/public/avatar.png" alt="" />
         <div class="user">
           <p class="username">{{username}}</p>
           <p class="rank">{{rank}}</p>
@@ -73,7 +74,12 @@
           </a>
         </div>
         <a href="/store">
-          <button class="big-btn" style="width: 100%">Store Now</button>
+          <button
+            class="big-btn"
+            style="width: 100%; font-size: 24px; height: 50px"
+          >
+            Store Now >>>>
+          </button>
         </a>
 
         <!--Fake fake -->
@@ -84,281 +90,41 @@
           </div>
           <div class="books-list">
             <!--Fake panel-->
+            {% for book in books%}
             <div class="panel book">
               <div>
-                <img src="../public/index/book-cover.png" alt="" />
+                <img
+                  src="{{book[11]}}"
+                  alt=""
+                  style="width: 60px; height: 100px"
+                />
               </div>
               <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
+                <span class="book-author">{{book[5]}}</span>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
+                <div class="book-title">{{book[1]}}</div>
+                <span class="book-genre"
+                  >{{book[2]}}--{{book[3]}}--{{book[4]}}</span
+                >
                 <span class="book-rate">
-                  <span class="book-rate-point">5</span>
+                  <span class="book-rate-point">{{book[9]}}</span>
                   <i class="fa-solid fa-star"></i>
                   <span class="book-rate-people">(120)</span>
                 </span>
                 <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
+                  <a href="/book/{{book[0]}}">
+                    <button class="primary">Đọc online</button></a
+                  >
+                  <a href="/cart/add/{{book[0]}}">
+                    <button type="submit" class="secondary">
+                      Them vao gio
+                    </button>
+                  </a>
                 </div>
               </dir>
             </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <!--Fake panel end !!!-->
-          </div>
-        </div>
-        <!--Fake fake -->
-        <div class="books" id="trending">
-          <div class="heading">
-            <h1>Bạn có thể thích</h1>
-            <button>View all</button>
-          </div>
-          <div class="books-list">
-            <!--Fake panel-->
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
-            <div class="panel book">
-              <div>
-                <img src="../public/index/book-cover.png" alt="" />
-              </div>
-              <dir>
-                <span class="book-author">Phạm Văn Ất, Lê Trường Thông</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-                <div class="book-title">
-                  Giáo trình C++ & Lập trình hướng đối tượng
-                </div>
-                <span class="book-genre">Khoa học kĩ thuật, Tin học</span>
-                <span class="book-rate">
-                  <span class="book-rate-point">5</span>
-                  <i class="fa-solid fa-star"></i>
-                  <span class="book-rate-people">(120)</span>
-                </span>
-                <div class="book-btn">
-                  <button class="secondary">Mua sách giấy</button>
-                  <button class="primary">Đọc online</button>
-                </div>
-              </dir>
-            </div>
+            {%endfor%}
+
             <!--Fake panel end !!!-->
           </div>
         </div>

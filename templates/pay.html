@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="../static/css/nav.css" />
+    <link rel="stylesheet" href="./static/css/pay.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    
+  </head>
+  <body>
+   
+    <div class="nav">
+      <div>
+        <a href="/"><img src="../static/public/logo.png" alt="" /></a>
+      </div>
+      <form action="/store" class="search">
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <input type="text" name="search" placeholder="Tìm kiếm" />
+      </form>
+      {% if username!="" %}
+      <div class="profile">
+        <img src="../static/public/avatar.png" alt="" />
+        <div class="user">
+          <p class="username">{{username}}</p>
+          <p class="rank">{{rank}}</p>
+        </div>
+      </div>
+      <div class="util">
+        <span class="icon"><i class="fa-regular fa-envelope"></i></span>
+        <a href="/cart">
+          <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+        </a>
+
+        <a href="/logout"
+          ><span class="icon bar"><i class="fa-solid fa-bars"></i></span
+        ></a>
+      </div>
+      {% else %}
+      <div class="profile">
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      </div>
+      <div class="util">
+        <a href="/cart">
+          <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+        </a>
+
+        <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+      </div>
+      {% endif %}
+    </div>
+    <style>
+      body{
+        background: orange;
+      }
+    </style>
+    <main class="screen container">
+      <div class="content ">
+        
+        
+          <!--Left column-->
+          <div class="left-col">
+
+            <div class="title">Order Information</div>
+            <form action="/checkout" method="post">
+              <!-- Personal Information -->
+              <div class="grouped">
+                <div class="form-input">
+                  <label class="form-label" for="first_name">First Name*</label>
+                  <input class="form-input" type="text" id="first_name" name="first_name" required>
+                </div>
+                <div class="form-input">
+                  <label class="form-label" for="last_name">Last Name*</label>
+                  <input class="form-input" type="text" id="last_name" name="last_name" required>
+                </div>
+              </div>
+
+          
+              <!-- Address Information -->
+              <div class="form-input">
+                <label class="form-label" for="address">Address*</label>
+                <input class="form-input" type="text" id="address" name="address" required>
+              </div>
+              <div class="grouped">
+                <div class="form-input">
+                  <label class="form-label" for="city">City*</label>
+                  <input class="form-input" type="text" id="city" name="city" required>
+                </div>
+                <div class="form-input">
+                  <label class="form-label" for="country">Country*</label>
+                  <input class="form-input" type="text" id="country" name="country" required>
+                </div>
+              </div>
+          
+              <!-- Credit Card Information -->
+              <!-- <div id="credit-card" class="grouped">
+                <div id="cc-no" class="form-input">
+                  <label class="form-label" for="credit_card">Credit Card Number*</label>
+                  <input class="form-input" type="text" id="credit_card" name="credit_card" required>
+                </div>
+                <div id="cc-date" class="form-input">
+                  <label class="form-label" for="exp_date">Expiration Date*</label>
+                  <input class="form-input" type="text" id="exp_date" name="exp_date" placeholder="MM/YYYY" required>
+                </div>
+                <div id="cc-ccv" class="form-input">
+                  <label class="form-label" for="ccv">CCV*</label>
+                  <input class="form-input" type="text" id="ccv" name="ccv" required>
+                </div>
+
+              </div>
+           -->
+              <!-- Submit Button -->
+             
+                <button type="button" class="btn btn-primary" style="background: #f97c1e;" data-toggle="modal" data-target="#myModal">
+                  Checkout
+              </button>
+            
+              
+        
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Xac nhan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color: #f97c1e;">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            DAT HANG THANH CONG
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color: #f97c1e;">Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+          </form>
+          </div>
+          <!--Left column-->
+          
+    </main>
+   
+  </body>
+</html>

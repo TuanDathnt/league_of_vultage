@@ -19,7 +19,7 @@
 
 main {
   display: grid;
-  grid-template-columns: 912px auto;
+  grid-template-columns: 1200px auto;
   grid-gap: 16px;
   padding: 64px;
 }

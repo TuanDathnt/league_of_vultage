@@ -61,6 +61,15 @@ def valid_username(username):
 
   else:
     return username, ''
+def get_max_id_order():
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()    
+  max_id=0
+  sqlcommand= "SELECT Max(Order_ID) from Order"
+  cursor.execute(sqlcommand)
+  max_id = cursor.fetchone()[0]
+  conn.close()
+  return max_id+1
 def get_max_id():
   conn = sqlite3.connect(lovdb)
   cursor = conn.cursor()    
@@ -95,7 +104,13 @@ def index():
     username = session['username']
   else:
     username = ""
-  return render_template("index.html", username = username)
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()   
+  sqlcommand= "SELECT * from Book"
+  cursor.execute(sqlcommand)
+  books =  cursor.fetchall()
+  conn.close()
+  return render_template("index.html", username = username,books=books)
 
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
@@ -151,7 +166,7 @@ def signup():
 
 
 @app.route("/store", methods = ['GET'])
-def show_products():
+def store():
   search=request.args.get('search',default="",type=str)
   page=request.args.get('page',default=1,type=int)
   filter = request.args.get('filter',default='all',type=str)
@@ -200,7 +215,7 @@ def show_products():
     conn.close()
     print(books[0])
   
-  print(filter)
+  # print(filter)
   return render_template("store.html",username=username,books=books,focus=filter)
 @app.route("/book/<id>")
 def book(id):
@@ -216,13 +231,82 @@ def book(id):
   print(book)
   return render_template('book.html',username=username,book=book)
 
-@app.route("/cart", methods = ['GET','POST'])
-def show_cart():
+@app.route("/cart/add/<id>", methods = ['GET','POST'])
+def add_cart(id):
+  cart = session.get('cart',[])
+  print(id)
+  cart.append(id)
+
+
+  session["cart"]=cart  
+
+  referer_url = request.headers.get('Referer')
+
+    
+  if referer_url:
+      return redirect(referer_url)
+  else:
+      return redirect('/')
+@app.route("/cart/delete/<id>", methods = ['GET','POST'])
+def delete_cart(id):
+  cart = session.get('cart',[])
+  if id in cart:
+    cart.remove(id)
+  referer_url = request.headers.get('Referer')
+
+    
+  if referer_url:
+      return redirect(referer_url)
+  else:
+      return redirect('/') 
+@app.route("/cart")
+def cart():
+  username=""
+  carts=[]
+  money=0
   if "username" in session:
     username=session.get("username")
-  else:
-    username=''
-  return render_template('cart.html',username=username)
+  current_cart=[]
+  if 'cart' in session:
+    current_cart=session.get('cart',[1,2,3])
+  
+  conn=sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  for id in current_cart:
+    cursor.execute(f"select * from Book where Book_ID={id}")
+    print()
+    product = cursor.fetchone()
+    money = money +product[10]
+    carts.append(product)
+  conn.close()
+  print(money)
+  return render_template(
+  "cart.html",carts=carts,money=money
+  )
+@app.route("/pay")
+def pay():
+  username=""
+  if "username" in session:
+    username=session.get("username")
+  carts= session.get("cart",[])
+  referer_url = request.headers.get('Referer')
+  if request.method=="POST":
+    print(session['cart'])  
+    
+    order=[]
+    
+    conn=sqlite3.connect(lovdb)
+    cursor = conn.cursor()
+    for id in carts:
+      cursor.execute(f"select * from Book where Book_ID={id}")
+      obj = cursor.fetchone()
+      product = {"name":obj[0],"quantity":request.form[f"{obj[0]}"]}
+      order.append(product)
+    print(order)
+    conn.close()
+ 
+
+  return render_template("/pay.html",username=username)
 
 @app.route("/cart/finalize_purchase", methods = ['GET','POST'])
 def finalize_purchase(account_id):
@@ -257,7 +341,127 @@ def show_library(account_id):
 @app.route("/read/<book_id>", methods = ['GET', 'POST'])
 def read(book_id):
   pass
+#CHECKOUT FUNCTION
+@app.route('/checkout', methods=['GET', 'POST'])
+def checkout():
+    # Check if the user is logged in
+  username=""
+  if "username" in session:
+    username=session.get("username")
+  if request.method=="POST":
+    first_name = request.form('first_name')
+    last_name = request.form('last_name')
+    address = request.form('address')
+    city = request.form('city')
+    country = request.form('country')
+    last_name = request.form('last_name')
+    insert_sql = '''
+    INSERT INTO Order
+    (Order_ID,Account_ID,Book_ID,Number,Form,Total_Price,Address) 
+    VALUES 
+    (?, ?, ?, ?,?,?,?)
+    '''
+    conn = sqlite3.connect(lovdb)
+    cursor = conn.cursor()
+    cursor.execute(insert_sql,(get_max_id_order(),"","","","","",""))
+    conn.commit()
+    conn.close()
+  referer_url = request.headers.get('Referer')
+  # print(session['cart'])  
+  # carts = session["cart"]
+  # referer_url = request.headers.get('Referer')
+  # order=[]
 
+  # conn=sqlite3.connect(lovdb)
+  # cursor = conn.cursor()
+  # for id in carts:
+  #   cursor.execute(f"select * from Book where Book_ID={id}")
+  #   obj = cursor.fetchone()
+  #   product = {"name":obj[0],"quantity":request.form[f"{obj[0]}"]}
+  #   order.append(product)
+  # print(order)
+  # conn.close()
+    
+  if referer_url:
+      return redirect(referer_url)
+  else:
+      return redirect('/')
+    # Retrieve the user's cart from the session
+
+  # total_price = sum(item['new_price'] for item in cart)
+  # # Generate a unique order_id (you can use uuid or any other method)
+  # order_uuid = generate_order_id()
+  # return render_template('checkout.html', cart=cart, total_price=total_price, order_uuid=order_uuid)
+
+#PROCEED TO CHECKOUT FUNCTION
+# @app.route('/proceed-checkout-<order_uuid>', methods=['GET', 'POST'])
+# def proceed_checkout(order_uuid):
+#     # Retrieve the user's cart from the session
+#     if order_uuid != session['instant_order_id']:
+#       cart = session.get('cart', [])
+#     else:
+#       cart = session.get('instant_cart', [])
+#     # Calculate total price
+#     total_price = sum(item['new_price'] for item in cart)
+#     if request.method == 'POST':
+#         # Get user id
+#         username = session['username']
+#         conn = sqlite3.connect(sqldbuser)
+#         cursor = conn.cursor()
+#         sqlcommand="Select id from users where username = '"+username+"' or email = '"+username+"'"
+#         cursor.execute(sqlcommand)
+#         user_id = int(''.join(map(str, cursor.fetchone())))
+#         # Save the order
+#         order = save_order(user_id, order_uuid, total_price, cart)
+#         # Clear the cart after successful payment
+#         session['cart'] = []
+#         flash('Payment successful. Thank you for your purchase!', 'success')
+#         return redirect(url_for('index'))
+#     return render_template('checkout.html', cart=cart, total_price=total_price)
+
+@app.route("/admin",methods=['GET',"POST"])
+def admin():
+  search=request.args.get('search',default="",type=str)
+  if search!="":
+    conn = sqlite3.connect(lovdb)
+    cursor = conn.cursor()
+
+    cursor.execute(f"select * from Account WHERE Username Like '%{search}%'")
+    users = cursor.fetchall()
+    conn.close()
+    return render_template("admin.html",users=users,len=len(users),focus='users',order=[],books=[])
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(f"select * from Account")
+  users = cursor.fetchall()
+  conn.close()
+  return render_template("admin.html",users=users,len=len(users),focus='users',order=[],books=[])
+@app.route("/delete/<id>")
+def delete(id):
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(f"DELETE FROM Account WHERE Account_ID = {id}")
+  conn.commit()
+  conn.close()
+  return redirect(url_for('admin'))
+
+@app.route("/admin/orders")
+def orders():
+  
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(f"select * from Account")
+  users = cursor.fetchall()
+  conn.close()
+  return render_template("admin.html",users=[],len=len(users),focus='orders',order=users,books=[])
+@app.route("/admin/books")
+def books():
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(f"select * from Book ")
+  users = cursor.fetchall()
+  conn.close()
+  return render_template("admin.html",users=[],len=len(users),focus='books',order=[],books=users)
 
 if __name__=="__main__":
   app.run(debug=True)
