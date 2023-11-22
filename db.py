@@ -53,6 +53,18 @@ books_data = [
     (36,"Cha Voi: Dạy Con Nên Người Ở Thời Đại Số","Nuôi dạy con","Cẩm nang làm cha mẹ","","Trương Nguyện Thành","NXB Tổng Hợp TPHCM","2020-07-14",0,8.6,120000,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/cha_voi_day_con_nen_nguoi_o_thoi_dai_so/2022_12_29_17_05_36_1-390x510.jpg",""),
     (37,"Thực Đơn Ăn Dặm Kiểu Nhật","Nuôi dạy con","Dinh dưỡng - Sức khỏe cho con","","Reiko Ueda, Junko Ueda","NXB Lao Động","2022-01-31",0,7.7,134000,"https://cdn0.fahasa.com/media/catalog/product/t/h/th_c-_n-_n-d_m-ki_u-nh_t---b_a-1_1.jpg",""),
     (38,"Dạy Con Dùng Tiền","Nuôi dạy con","Phát triển kỹ năng - Trí tuệ cho trẻ","","Adam Khoo, Keon Chee","NXB Trẻ","2022-07-25",0,9,63750,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/day_con_dung_tien_tai_ban_2019/2021_06_08_16_20_22_1-390x510.jpg",""),
+    (39,"Hẹn Nhau Phía Sau Tan Vỡ","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","An","NXB Phụ Nữ Việt Nam","2020-09-08",5,7.8,73100,"https://cdn0.fahasa.com/media/catalog/product/b/i/bia_hen-nhau-sau-tan-vo_1_1.jpg",""),
+    (40,"Người Tập Lớn","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Chà","2021-11-13",0,8.9,92650,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/nguoi_tap_lon/2023_03_06_16_37_20_1-390x510.png",""),
+    (41,"Lê La Từ Nhà Ra Ngõ","Văn học","Truyện ngắn - Tản văn","Tản văn","Làn","2022-10-21",0,8.7,75650,"https://cdn0.fahasa.com/media/catalog/product/b/i/bia_le-la-tu-nha-ra-ngo.jpg",""),
+    (42,"Stars","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Cường Lê","NXB Thế Giới","2021-03-30",4,8.1,111300,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/stars/2023_05_09_16_28_32_1-390x510.jpg",""),
+    (44,"Màu Nhạt Nắng","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","BS Wynn Huỳnh Trần","NXB Thế Giới","2020-04-11",0,9.1,126650,"https://cdn0.fahasa.com/media/catalog/product/9/7/9786043451993_1.jpg",""),
+    (45,"Không Sao Đâu, Lại Bắt Đầu","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Mr. Q","NXB Dân Trí","2021-10-27",0,9.3,71400,"https://cdn0.fahasa.com/media/catalog/product/8/9/8935325011375_1_.png",""),
+    (46,"Sông","Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Nguyễn Bảo Trung","NXB Dân Trí","2020-12-30",0,8.3,119000,"https://cdn0.fahasa.com/media/catalog/product/s/_/s_ng_b_a_1.jpg",""),
+    (47,"Ủ Một Miền Thơm","Văn học","Truyện ngắn - Tản văn","Truyện ngắn""Văn học","Truyện ngắn - Tản văn","Truyện ngắn","Vũ Thượng","NXB Dân Trí","2022-09-11",0,9.2,93500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/u_mot_mien_thom_tai_ban_2022/2022_07_08_10_12_47_1-390x510.jpg",""),
+    (48,"1cm Đến Hạnh Phúc - 1cm Diving","Văn học","Truyện ngắn - Tản văn","Tản văn","Tae Soo, Mun Jeong","NXB Đồng Nai","https://cdn0.fahasa.com/media/catalog/product/1/c/1cm-_n-h_nh-ph_c_b_a-tr_c---copy.jpg",""),
+    (49,"Homo Deus - Lược Sử Tương Lai","Tiểu sử - Hồi kí","Lịch sử","","Yuval Noah Harari","NXB Thế Giới","2020-10-07",0,9.7,121500,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/homo_deus___luoc_su_tuong_lai/2023_05_25_15_11_18_1-390x510.jpg",""),
+    (50,"Escalante - Người Thầy Xuất Sắc Nhất Nước Mỹ","Tiểu sử - Hồi kí","Câu chuyện cuộc đời","","Jay Mathews","NXB Đại Học Sư Phạm","2022-11-11",0,8.7,85250,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/escalante___nguoi_thay_xuat_sac_nhat_nuoc_my/2022_11_02_14_23_31_1-390x510.jpg","")
+    (51,"Percy Jackson And The Olympians 1: Lightning Thief","Sách quốc tế","Văn học","Giả tường","Rick Riordan","Penguin Books","2022-01-19",3,9,146700,"https://cdn0.fahasa.com/media/flashmagazine/images/page_images/percy_jackson_and_the_olympians_1_lightning_thief/2022_12_08_16_51_03_1-390x510.jpg","")
     # Thêm thêm 18 dòng dữ liệu khác...
 ]
 
