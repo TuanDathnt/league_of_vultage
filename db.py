@@ -69,11 +69,10 @@ books_data = [
 ]
 
 # Câu lệnh SQL để chèn dữ liệu
-insert_sql = "INSERT INTO Book (Book_ID,Book_Name,Book_Category,Book_Subcategory,Book_Genre,Author,Publisher,Date_Published,Age_Range,Rating,Price,Picture,Description) VALUES (?, ?, ?, ?,?,?,?,?,?,?,?,?,?)"
 
 # Chèn dữ liệu vào bảng
 for book in books_data:
-    cursor.execute(insert_sql, book)
+    cursor.execute(f"INSERT INTO Book (Book_ID,Book_Name,Book_Category,Book_Subcategory,Book_Genre,Author,Publisher,Date_Published,Age_Range,Rating,Price,Picture,Description) VALUES ({book[0]},N'{book[1]}',N'{book[2]}',N'{book[3]}',N'{book[4]}',N'{book[5]}',N'{book[6]}',{book[7]},{book[8]},{book[9]},{book[10]},{book[11]},N'{book[12]}')")
 
 # Lưu thay đổi và đóng kết nối
 conn.commit()
