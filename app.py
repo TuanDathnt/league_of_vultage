@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect,session,url_for
+from flask import Flask,render_template,request,redirect,session,url_for,send_file
 import sqlite3
 from datetime import timedelta
 
@@ -256,7 +256,13 @@ def show_library(account_id):
 
 @app.route("/read/<book_id>", methods = ['GET', 'POST'])
 def read(book_id):
-  pass
+  conn = sqlite3.connect(lovdb)
+  cursor = conn.cursor()
+  cursor.execute(f"select Content from Library where Book_ID ='{book_id}'")
+  book = cursor.fetchall()
+  conn.close()
+  with open(f"/content/{book}") as content:
+    return send_file(content)
 
 
 if __name__=="__main__":
